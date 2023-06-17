@@ -27,3 +27,10 @@ pip3 install cython_bbox
 cd <BYTETRACK-HOME>
 python tools/yolo5.py -f exps/yolox_s.py -c pretrained/yolov5s.pt --fuse  --num_classes 3
 ```
+
+
+# Links 
+
+1-Bytetrack : https://github.com/ifzhang/ByteTrack/tree/main
+
+2-Yolov5 : https://github.com/ultralytics/yolov5
