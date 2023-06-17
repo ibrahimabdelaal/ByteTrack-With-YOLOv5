@@ -51,6 +51,8 @@ class KalmanFilter(object):
         # the model. This is a bit hacky.
         self._std_weight_position = 1. / 20
         self._std_weight_velocity = 1. / 160
+        # self._std_weight_position = 10. / 20
+        # self._std_weight_velocity = 80. / 160
 
     def initiate(self, measurement):
         """Create track from unassociated measurement.
@@ -74,14 +76,14 @@ class KalmanFilter(object):
         mean = np.r_[mean_pos, mean_vel]
 
         std = [
-            2 * self._std_weight_position * measurement[3],
-            2 * self._std_weight_position * measurement[3],
+            20 * self._std_weight_position * measurement[3],
+            20 * self._std_weight_position * measurement[3],
             1e-2,
-            2 * self._std_weight_position * measurement[3],
-            10 * self._std_weight_velocity * measurement[3],
-            10 * self._std_weight_velocity * measurement[3],
+            20 * self._std_weight_position * measurement[3],
+            80 * self._std_weight_velocity * measurement[3],
+            80 * self._std_weight_velocity * measurement[3],
             1e-5,
-            10 * self._std_weight_velocity * measurement[3]]
+            80 * self._std_weight_velocity * measurement[3]]
         covariance = np.diag(np.square(std))
         return mean, covariance
 
