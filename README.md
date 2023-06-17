@@ -23,5 +23,7 @@ pip3 install cython_bbox
 
 
 # Usage example 
+```shell
 cd <BYTETRACK-HOME>
 python tools/yolo5.py -f exps/yolox_s.py -c pretrained/yolov5s.pt --fuse  --num_classes 3
+```
